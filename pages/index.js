@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import Card from "../components/Card";
 import { Footer } from "../components/Footer";
+import Skeleton from "../components/Skeleton";
 
 const graphcms = new GraphQLClient(
     "https://api-eu-central-1.hygraph.com/v2/cl5pffsmt24cw01ui9yhp2cq5/master"
@@ -60,6 +61,10 @@ export default function Home({ posts }) {
 
         return () => clearInterval(interval);
     }, []);
+
+    if (!updatedPosts) {
+        return <Skeleton />
+    }
 
     return (
         <div className={styles.container}>

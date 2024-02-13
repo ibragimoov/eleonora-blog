@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "../../styles/Slug.module.css";
 import {useSearchParam, useSearchParams} from "next/dist/client/components/hooks-client";
 import {useRouter} from "next/router";
+import Skeleton from "../../components/Skeleton";
 
 const graphcms = new GraphQLClient(
     "https://api-eu-central-1.hygraph.com/v2/cl5pffsmt24cw01ui9yhp2cq5/master"
@@ -55,7 +56,7 @@ export default function BlogPost({ post }) {
     }, [router.query])
 
     if (!currenctPost) {
-        return <div>Loading...</div>
+        return <Skeleton />
     }
 
     return (
