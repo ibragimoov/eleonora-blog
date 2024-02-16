@@ -85,7 +85,7 @@ export default function Home() {
                         ))}
                     </div> :
                     <div className={'skeleton__wrapper'}>
-                        {[0, 1, 2, 3, 4, 5].map((_) => (<Skeleton/>))}
+                        {[0, 1, 2, 3, 4, 5].map((_) => (<Skeleton key={_} />))}
                     </div>
                 }
             </main>
