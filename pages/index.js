@@ -57,7 +57,7 @@ export default function Home() {
             setUpdatedPosts(updatedPosts);
         }
         fetchPosts()
-        const interval = setInterval(fetchPosts, 1000); // Обновление данных каждую минуту
+        const interval = setInterval(fetchPosts, 60000); // Обновление данных каждую минуту
 
         return () => clearInterval(interval);
     }, []);
