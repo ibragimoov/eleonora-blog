@@ -4,7 +4,7 @@ import Link from "next/link";
 function Navbar() {
   return (
     <nav>
-      <Link shallow={true} href="/">Eleonora Blog</Link>
+      <Link style={{ color: 'white' }} shallow={true} href="/">Eleonora Blog</Link>
     </nav>
   );
 }

@@ -48,8 +48,8 @@ const query = gql`
 //     };
 // }
 
-export default function Home({ posts }) {
-    const [updatedPosts, setUpdatedPosts] = useState(posts);
+export default function Home() {
+    const [updatedPosts, setUpdatedPosts] = useState(null);
 
     useEffect(() => {
         async function fetchPosts() {
@@ -62,10 +62,6 @@ export default function Home({ posts }) {
         return () => clearInterval(interval);
     }, []);
 
-    if (!updatedPosts) {
-        return <Skeleton />
-    }
-
     return (
         <div className={styles.container}>
             <Head>
@@ -75,17 +71,23 @@ export default function Home({ posts }) {
             </Head>
 
             <main className={styles.main}>
-                {updatedPosts &&
-                    updatedPosts.map((post) => (
-                        <Card
-                            title={post.title}
-                            author={post.author}
-                            coverPhoto={post.coverPhoto}
-                            key={post.id}
-                            datePublished={post.datePublished}
-                            slug={post.slug}
-                        />
-                    ))}
+                {updatedPosts ?
+                    <div className='card__wrapper'>
+                        {updatedPosts.map((post) => (
+                            <Card
+                                title={post.title}
+                                author={post.author}
+                                coverPhoto={post.coverPhoto}
+                                key={post.id}
+                                datePublished={post.datePublished}
+                                slug={post.slug}
+                            />
+                        ))}
+                    </div> :
+                    <div className={'skeleton__wrapper'}>
+                        {[0, 1, 2, 3, 4, 5].map((_) => (<Skeleton/>))}
+                    </div>
+                }
             </main>
         </div>
     );

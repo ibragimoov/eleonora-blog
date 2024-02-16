@@ -1,26 +1,39 @@
 .card {
     border-radius: 2rem;
     overflow: hidden;
-    box-shadow: 15px 20px 40px rgba(216, 211, 211, 0.4);
+    box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.4);
     transition: 0.5s all;
     position: relative;
+    width: 400px;
     height: 400px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: black !important;
+    /*border: 1px solid rgba(0, 0, 0, 0.15);*/
+
+    background-color: white;
+}
+
+.card__wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .card:hover {
-    box-shadow: 15px 20px 40px rgba(216, 211, 211, 0.6);
+    box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
     transition: 0.5s;
-    opacity: 0.8;
 }
 
 .card h2 {
     padding: 0.5rem 0rem;
     width: 300px;
+    color: black;
 }
 
 .card h3 {
     font-size: 1rem;
+    color: black;
 }
 
 .imgContainer {

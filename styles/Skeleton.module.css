@@ -1,0 +1,50 @@
+.skeleton {
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: none; /* Убираем тень для скелета */
+    position: relative;
+    transition: 0.5s all;
+    width: 400px;
+    height: 400px; /* Задаем высоту скелета */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: #f0f0f0; /* Цвет фона для скелета */
+}
+
+.skeleton__wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.skeleton h2,
+.skeleton h3,
+.skeleton .imgContainer,
+.skeleton .details,
+.skeleton .text,
+.skeleton .author {
+    background-color: #e0e0e0; /* Цвет фона для элементов внутри скелета */
+}
+
+.skeleton img {
+    display: none; /* Скрываем изображение в скелете */
+}
+
+.skeleton:hover {
+    opacity: 1; /* Не меняем непрозрачность при наведении на скелет */
+}
+
+@media (max-width: 400px) {
+    .skeleton {
+        margin: 1rem;
+    }
+
+    .skeleton .author {
+        /* left: 26.613px; */
+    }
+
+    .skeleton .data {
+        margin-left: 2rem;
+    }
+}

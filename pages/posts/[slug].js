@@ -5,6 +5,7 @@ import styles from "../../styles/Slug.module.css";
 import {useSearchParam, useSearchParams} from "next/dist/client/components/hooks-client";
 import {useRouter} from "next/router";
 import Skeleton from "../../components/Skeleton";
+import {InfinitySpin} from "react-loader-spinner";
 
 const graphcms = new GraphQLClient(
     "https://api-eu-central-1.hygraph.com/v2/cl5pffsmt24cw01ui9yhp2cq5/master"
@@ -35,7 +36,7 @@ const query = gql`
   }
 `;
 
-export default function BlogPost({ post }) {
+export default function BlogPost() {
     const router = useRouter();
     const [currenctPost, setCurrentPost] = useState(null);
 
@@ -56,11 +57,19 @@ export default function BlogPost({ post }) {
     }, [router.query])
 
     if (!currenctPost) {
-        return <Skeleton />
+        return <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <InfinitySpin
+                styles={{ display: 'flex', justifyContent: 'center' }}
+                visible={true}
+                width='200'
+                color="white"
+                ariaLabel="infinity-spin-loading"
+            />
+        </div>
     }
 
     return (
-        <main className={styles.blog}>
+        <div className={styles.blog}>
             <h2 className="blog-title">{currenctPost.title}</h2>
             <br />
             <img
@@ -83,7 +92,7 @@ export default function BlogPost({ post }) {
                     dangerouslySetInnerHTML={{ __html: currenctPost.content.html }}
                 ></div>
             </div>
-        </main>
+        </div>
     );
 }
 
