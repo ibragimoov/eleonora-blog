@@ -32,9 +32,9 @@ nav {
 
 main {
     display: flex;
-    justify-content: center;
 
     max-width: 1600px;
+    justify-content: center;
 }
 
 footer {
