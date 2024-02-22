@@ -1,8 +1,18 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .skeleton {
     border-radius: 2rem;
     overflow: hidden;
+    -webkit-box-shadow: none;
     box-shadow: none; /* Убираем тень для скелета */
     position: relative;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
     transition: 0.5s all;
     width: 400px;
     height: 400px; /* Задаем высоту скелета */
@@ -11,9 +21,15 @@
 }
 
 .skeleton__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-line-pack: center;
     align-content: center;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     gap: 30px;
 }
