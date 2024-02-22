@@ -45,6 +45,15 @@ nav {
 }
 
 main {
+    @media (max-width: 450px) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        max-width: 1600px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+    }
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
